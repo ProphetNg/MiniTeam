@@ -1,0 +1,26 @@
+# Environment Variables
+.env
+mini_agent/.env
+
+# Virtual Environments
+venv/
+.venv/
+env/
+
+# Python Cache
+__pycache__/
+*.pyc
+
+# OS Metadata
+.DS_Store
+
+# Generated Workspace (Optional, keep if you want to save agent outputs)
+# workspace/
+# For now, let's ignore it to keep the repo specific to the tool itself, 
+# or un-comment if the user wants to commit their creations.
+# I will leave workspace committed by default as it's a showcase, 
+# but ignore the specific large test artifacts if any.
+# Actually, for a clean tool repo, we should probably ignore workspace content 
+# but keep the folder.
+workspace/*
+!workspace/.gitkeep
