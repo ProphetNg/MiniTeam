@@ -1,0 +1,813 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ArXiv CS Daily Papers - December 15, 2025</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f5f5f5;
+            line-height: 1.6;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #2c3e50;
+            text-align: center;
+            margin-bottom: 10px;
+            font-size: 2.5em;
+        }
+        .subtitle {
+            text-align: center;
+            color: #7f8c8d;
+            margin-bottom: 30px;
+            font-size: 1.1em;
+        }
+        .tabs {
+            display: flex;
+            margin-bottom: 30px;
+            border-bottom: 2px solid #ecf0f1;
+        }
+        .tab {
+            padding: 15px 25px;
+            cursor: pointer;
+            background: #ecf0f1;
+            border: none;
+            margin-right: 5px;
+            border-radius: 5px 5px 0 0;
+            font-size: 1em;
+            transition: all 0.3s ease;
+        }
+        .tab.active {
+            background: #3498db;
+            color: white;
+        }
+        .tab:hover {
+            background: #2980b9;
+            color: white;
+        }
+        .tab-content {
+            display: none;
+        }
+        .tab-content.active {
+            display: block;
+        }
+        .paper {
+            background: #f8f9fa;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            border-left: 4px solid #3498db;
+            transition: all 0.3s ease;
+        }
+        .paper:hover {
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            transform: translateY(-2px);
+        }
+        .paper-title {
+            font-size: 1.3em;
+            font-weight: bold;
+            color: #2c3e50;
+            margin-bottom: 10px;
+        }
+        .paper-authors {
+            color: #7f8c8d;
+            font-style: italic;
+            margin-bottom: 10px;
+        }
+        .paper-abstract {
+            margin-bottom: 15px;
+            color: #34495e;
+            text-align: justify;
+        }
+        .paper-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        .paper-links {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+        .btn {
+            padding: 8px 16px;
+            text-decoration: none;
+            border-radius: 4px;
+            font-size: 0.9em;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+        .btn-primary {
+            background: #3498db;
+            color: white;
+        }
+        .btn-primary:hover {
+            background: #2980b9;
+        }
+        .btn-cite {
+            background: #e74c3c;
+            color: white;
+        }
+        .btn-cite:hover {
+            background: #c0392b;
+        }
+        .paper-date {
+            color: #95a5a6;
+            font-size: 0.9em;
+        }
+        .bibtex-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.5);
+            z-index: 1000;
+        }
+        .bibtex-content {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            max-width: 80%;
+            max-height: 80%;
+            overflow: auto;
+        }
+        .bibtex-text {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 5px;
+            font-family: 'Courier New', monospace;
+            white-space: pre-wrap;
+            margin: 15px 0;
+        }
+        .close-btn {
+            float: right;
+            cursor: pointer;
+            font-size: 1.5em;
+            color: #95a5a6;
+        }
+        .close-btn:hover {
+            color: #2c3e50;
+        }
+        @media (max-width: 768px) {
+            .container {
+                padding: 15px;
+            }
+            .tabs {
+                flex-direction: column;
+            }
+            .tab {
+                margin-bottom: 5px;
+                margin-right: 0;
+            }
+            .paper-meta {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>ArXiv CS Daily Papers</h1>
+        <div class="subtitle">Latest papers in Computer Science - December 15, 2025</div>
+        
+        <div class="tabs">
+            <button class="tab active" onclick="showTab('cs.AI')">Artificial Intelligence</button>
+            <button class="tab " onclick="showTab('cs.CV')">Computer Vision</button>
+            <button class="tab " onclick="showTab('cs.CL')">Computation and Language</button>
+        </div>
+        <div id="cs.AI" class="tab-content active">
+            <div class="paper" data-arxiv-id="2512.10957">
+                <div class="paper-title">SceneMaker: Open-set 3D Scene Generation with Decoupled De-occlusion and Pose Estimation Model</div>
+                <div class="paper-authors">Yukai Shi, Weiyu Li, Zihao Wang, Hongyang Li, Xingyu Chen, Ping Tan, Lei Zhang</div>
+                <div class="paper-abstract">We propose a decoupled 3D scene generation framework called SceneMaker in this work. Due to the lack of sufficient open-set de-occlusion and pose estimation priors, existing methods struggle to simultaneously produce high-quality geometry and accurate poses under severe occlusion and open-set settings. To address these issues, we first decouple the de-occlusion model from 3D object generation, and enhance it by leveraging image datasets and collected de-occlusion datasets for much more diverse open-set occlusion patterns. Then, we propose a unified pose estimation model that integrates global and local mechanisms for both self-attention and cross-attention to improve accuracy. Besides, we construct an open-set 3D scene dataset to further extend the generalization of the pose estimation model. Comprehensive experiments demonstrate the superiority of our decoupled framework on both indoor and open-set scenes. Our codes and datasets is released at https://idea-research.github.io/SceneMaker/.</div>
+                <div class="paper-meta">
+                    <div class="paper-date">Published: 2025-12-11</div>
+                    <div class="paper-links">
+                        <a href="https://arxiv.org/abs/2512.10957v1" class="btn btn-primary" target="_blank">View Paper</a>
+                        <button class="btn btn-cite" onclick="showBibTeX('2512.10957', `@article{shi2025_2512.10957,
+  author = {Shi, Yukai and Li, Weiyu and Wang, Zihao and Li, Hongyang and Chen, Xingyu and Tan, Ping and Zhang, Lei},
+  title = {SceneMaker: Open-set 3D Scene Generation with Decoupled De-occlusion and Pose Estimation Model},
+  journal = {arXiv preprint arXiv:2512.10957},
+  year = {2025},
+  note = {arXiv:2512.10957}
+}`)">Cite</button>
+                    </div>
+                </div>
+            </div>
+            <div class="paper" data-arxiv-id="2512.10952">
+                <div class="paper-title">Hierarchical Dataset Selection for High-Quality Data Sharing</div>
+                <div class="paper-authors">Xiaona Zhou, Yingyan Zeng, Ran Jin, Ismini Lourentzou</div>
+                <div class="paper-abstract">The success of modern machine learning hinges on access to high-quality training data. In many real-world scenarios, such as acquiring data from public repositories or sharing across institutions, data is naturally organized into discrete datasets that vary in relevance, quality, and utility. Selecting which repositories or institutions to search for useful datasets, and which datasets to incorporate into model training are therefore critical decisions, yet most existing methods select individual samples and treat all data as equally relevant, ignoring differences between datasets and their sources. In this work, we formalize the task of dataset selection: selecting entire datasets from a large, heterogeneous pool to improve downstream performance under resource constraints. We propose Dataset Selection via Hierarchies (DaSH), a dataset selection method that models utility at both dataset and group (e.g., collections, institutions) levels, enabling efficient generalization from limited observations. Across two public benchmarks (Digit-Five and DomainNet), DaSH outperforms state-of-the-art data selection baselines by up to 26.2% in accuracy, while requiring significantly fewer exploration steps. Ablations show DaSH is robust to low-resource settings and lack of relevant datasets, making it suitable for scalable and adaptive dataset selection in practical multi-source learning workflows.</div>
+                <div class="paper-meta">
+                    <div class="paper-date">Published: 2025-12-11</div>
+                    <div class="paper-links">
+                        <a href="https://arxiv.org/abs/2512.10952v1" class="btn btn-primary" target="_blank">View Paper</a>
+                        <button class="btn btn-cite" onclick="showBibTeX('2512.10952', `@article{zhou2025_2512.10952,
+  author = {Zhou, Xiaona and Zeng, Yingyan and Jin, Ran and Lourentzou, Ismini},
+  title = {Hierarchical Dataset Selection for High-Quality Data Sharing},
+  journal = {arXiv preprint arXiv:2512.10952},
+  year = {2025},
+  note = {arXiv:2512.10952}
+}`)">Cite</button>
+                    </div>
+                </div>
+            </div>
+            <div class="paper" data-arxiv-id="2512.10949">
+                <div class="paper-title">Are We Ready for RL in Text-to-3D Generation? A Progressive Investigation</div>
+                <div class="paper-authors">Yiwen Tang, Zoey Guo, Kaixin Zhu, Ray Zhang, Qizhi Chen, Dongzhi Jiang, Junli Liu, Bohan Zeng, Haoming Song, Delin Qu, Tianyi Bai, Dan Xu, Wentao Zhang, Bin Zhao</div>
+                <div class="paper-abstract">Reinforcement learning (RL), earlier proven to be effective in large language and multi-modal models, has been successfully extended to enhance 2D image generation recently. However, applying RL to 3D generation remains largely unexplored due to the higher spatial complexity of 3D objects, which require globally consistent geometry and fine-grained local textures. This makes 3D generation significantly sensitive to reward designs and RL algorithms. To address these challenges, we conduct the first systematic study of RL for text-to-3D autoregressive generation across several dimensions. (1) Reward designs: We evaluate reward dimensions and model choices, showing that alignment with human preference is crucial, and that general multi-modal models provide robust signal for 3D attributes. (2) RL algorithms: We study GRPO variants, highlighting the effectiveness of token-level optimization, and further investigate the scaling of training data and iterations. (3) Text-to-3D Benchmarks: Since existing benchmarks fail to measure implicit reasoning abilities in 3D generation models, we introduce MME-3DR. (4) Advanced RL paradigms: Motivated by the natural hierarchy of 3D generation, we propose Hi-GRPO, which optimizes the global-to-local hierarchical 3D generation through dedicated reward ensembles. Based on these insights, we develop AR3D-R1, the first RL-enhanced text-to-3D model, expert from coarse shape to texture refinement. We hope this study provides insights into RL-driven reasoning for 3D generation. Code is released at https://github.com/Ivan-Tang-3D/3DGen-R1.</div>
+                <div class="paper-meta">
+                    <div class="paper-date">Published: 2025-12-11</div>
+                    <div class="paper-links">
+                        <a href="https://arxiv.org/abs/2512.10949v1" class="btn btn-primary" target="_blank">View Paper</a>
+                        <button class="btn btn-cite" onclick="showBibTeX('2512.10949', `@article{tang2025_2512.10949,
+  author = {Tang, Yiwen and Guo, Zoey and Zhu, Kaixin and Zhang, Ray and Chen, Qizhi and Jiang, Dongzhi and Liu, Junli and Zeng, Bohan and Song, Haoming and Qu, Delin and Bai, Tianyi and Xu, Dan and Zhang, Wentao and Zhao, Bin},
+  title = {Are We Ready for RL in Text-to-3D Generation? A Progressive Investigation},
+  journal = {arXiv preprint arXiv:2512.10949},
+  year = {2025},
+  note = {arXiv:2512.10949}
+}`)">Cite</button>
+                    </div>
+                </div>
+            </div>
+            <div class="paper" data-arxiv-id="2512.10946">
+                <div class="paper-title">ImplicitRDP: An End-to-End Visual-Force Diffusion Policy with Structural Slow-Fast Learning</div>
+                <div class="paper-authors">Wendi Chen, Han Xue, Yi Wang, Fangyuan Zhou, Jun Lv, Yang Jin, Shirun Tang, Chuan Wen, Cewu Lu</div>
+                <div class="paper-abstract">Human-level contact-rich manipulation relies on the distinct roles of two key modalities: vision provides spatially rich but temporally slow global context, while force sensing captures rapid, high-frequency local contact dynamics. Integrating these signals is challenging due to their fundamental frequency and informational disparities. In this work, we propose ImplicitRDP, a unified end-to-end visual-force diffusion policy that integrates visual planning and reactive force control within a single network. We introduce Structural Slow-Fast Learning, a mechanism utilizing causal attention to simultaneously process asynchronous visual and force tokens, allowing the policy to perform closed-loop adjustments at the force frequency while maintaining the temporal coherence of action chunks. Furthermore, to mitigate modality collapse where end-to-end models fail to adjust the weights across different modalities, we propose Virtual-target-based Representation Regularization. This auxiliary objective maps force feedback into the same space as the action, providing a stronger, physics-grounded learning signal than raw force prediction. Extensive experiments on contact-rich tasks demonstrate that ImplicitRDP significantly outperforms both vision-only and hierarchical baselines, achieving superior reactivity and success rates with a streamlined training pipeline. Code and videos will be publicly available at https://implicit-rdp.github.io.</div>
+                <div class="paper-meta">
+                    <div class="paper-date">Published: 2025-12-11</div>
+                    <div class="paper-links">
+                        <a href="https://arxiv.org/abs/2512.10946v1" class="btn btn-primary" target="_blank">View Paper</a>
+                        <button class="btn btn-cite" onclick="showBibTeX('2512.10946', `@article{chen2025_2512.10946,
+  author = {Chen, Wendi and Xue, Han and Wang, Yi and Zhou, Fangyuan and Lv, Jun and Jin, Yang and Tang, Shirun and Wen, Chuan and Lu, Cewu},
+  title = {ImplicitRDP: An End-to-End Visual-Force Diffusion Policy with Structural Slow-Fast Learning},
+  journal = {arXiv preprint arXiv:2512.10946},
+  year = {2025},
+  note = {arXiv:2512.10946}
+}`)">Cite</button>
+                    </div>
+                </div>
+            </div>
+            <div class="paper" data-arxiv-id="2512.10943">
+                <div class="paper-title">AlcheMinT: Fine-grained Temporal Control for Multi-Reference Consistent Video Generation</div>
+                <div class="paper-authors">Sharath Girish, Viacheslav Ivanov, Tsai-Shien Chen, Hao Chen, Aliaksandr Siarohin, Sergey Tulyakov</div>
+                <div class="paper-abstract">Recent advances in subject-driven video generation with large diffusion models have enabled personalized content synthesis conditioned on user-provided subjects. However, existing methods lack fine-grained temporal control over subject appearance and disappearance, which are essential for applications such as compositional video synthesis, storyboarding, and controllable animation. We propose AlcheMinT, a unified framework that introduces explicit timestamps conditioning for subject-driven video generation. Our approach introduces a novel positional encoding mechanism that unlocks the encoding of temporal intervals, associated in our case with subject identities, while seamlessly integrating with the pretrained video generation model positional embeddings. Additionally, we incorporate subject-descriptive text tokens to strengthen binding between visual identity and video captions, mitigating ambiguity during generation. Through token-wise concatenation, AlcheMinT avoids any additional cross-attention modules and incurs negligible parameter overhead. We establish a benchmark evaluating multiple subject identity preservation, video fidelity, and temporal adherence. Experimental results demonstrate that AlcheMinT achieves visual quality matching state-of-the-art video personalization methods, while, for the first time, enabling precise temporal control over multi-subject generation within videos. Project page is at https://snap-research.github.io/Video-AlcheMinT</div>
+                <div class="paper-meta">
+                    <div class="paper-date">Published: 2025-12-11</div>
+                    <div class="paper-links">
+                        <a href="https://arxiv.org/abs/2512.10943v1" class="btn btn-primary" target="_blank">View Paper</a>
+                        <button class="btn btn-cite" onclick="showBibTeX('2512.10943', `@article{girish2025_2512.10943,
+  author = {Girish, Sharath and Ivanov, Viacheslav and Chen, Tsai-Shien and Chen, Hao and Siarohin, Aliaksandr and Tulyakov, Sergey},
+  title = {AlcheMinT: Fine-grained Temporal Control for Multi-Reference Consistent Video Generation},
+  journal = {arXiv preprint arXiv:2512.10943},
+  year = {2025},
+  note = {arXiv:2512.10943}
+}`)">Cite</button>
+                    </div>
+                </div>
+            </div>
+            <div class="paper" data-arxiv-id="2512.10941">
+                <div class="paper-title">Mull-Tokens: Modality-Agnostic Latent Thinking</div>
+                <div class="paper-authors">Arijit Ray, Ahmed Abdelkader, Chengzhi Mao, Bryan A. Plummer, Kate Saenko, Ranjay Krishna, Leonidas Guibas, Wen-Sheng Chu</div>
+                <div class="paper-abstract">Reasoning goes beyond language; the real world requires reasoning about space, time, affordances, and much more that words alone cannot convey. Existing multimodal models exploring the potential of reasoning with images are brittle and do not scale. They rely on calling specialist tools, costly generation of images, or handcrafted reasoning data to switch between text and image thoughts. Instead, we offer a simpler alternative -- Mull-Tokens -- modality-agnostic latent tokens pre-trained to hold intermediate information in either image or text modalities to let the model think free-form towards the correct answer. We investigate best practices to train Mull-Tokens inspired by latent reasoning frameworks. We first train Mull-Tokens using supervision from interleaved text-image traces, and then fine-tune without any supervision by only using the final answers. Across four challenging spatial reasoning benchmarks involving tasks such as solving puzzles and taking different perspectives, we demonstrate that Mull-Tokens improve upon several baselines utilizing text-only reasoning or interleaved image-text reasoning, achieving a +3% average improvement and up to +16% on a puzzle solving reasoning-heavy split compared to our strongest baseline. Adding to conversations around challenges in grounding textual and visual reasoning, Mull-Tokens offers a simple solution to abstractly think in multiple modalities.</div>
+                <div class="paper-meta">
+                    <div class="paper-date">Published: 2025-12-11</div>
+                    <div class="paper-links">
+                        <a href="https://arxiv.org/abs/2512.10941v1" class="btn btn-primary" target="_blank">View Paper</a>
+                        <button class="btn btn-cite" onclick="showBibTeX('2512.10941', `@article{ray2025_2512.10941,
+  author = {Ray, Arijit and Abdelkader, Ahmed and Mao, Chengzhi and Plummer, Bryan A. and Saenko, Kate and Krishna, Ranjay and Guibas, Leonidas and Chu, Wen-Sheng},
+  title = {Mull-Tokens: Modality-Agnostic Latent Thinking},
+  journal = {arXiv preprint arXiv:2512.10941},
+  year = {2025},
+  note = {arXiv:2512.10941}
+}`)">Cite</button>
+                    </div>
+                </div>
+            </div>
+            <div class="paper" data-arxiv-id="2512.10940">
+                <div class="paper-title">OmniView: An All-Seeing Diffusion Model for 3D and 4D View Synthesis</div>
+                <div class="paper-authors">Xiang Fan, Sharath Girish, Vivek Ramanujan, Chaoyang Wang, Ashkan Mirzaei, Petr Sushko, Aliaksandr Siarohin, Sergey Tulyakov, Ranjay Krishna</div>
+                <div class="paper-abstract">Prior approaches injecting camera control into diffusion models have focused on specific subsets of 4D consistency tasks: novel view synthesis, text-to-video with camera control, image-to-video, amongst others. Therefore, these fragmented approaches are trained on disjoint slices of available 3D/4D data. We introduce OmniView, a unified framework that generalizes across a wide range of 4D consistency tasks. Our method separately represents space, time, and view conditions, enabling flexible combinations of these inputs. For example, OmniView can synthesize novel views from static, dynamic, and multiview inputs, extrapolate trajectories forward and backward in time, and create videos from text or image prompts with full camera control. OmniView is competitive with task-specific models across diverse benchmarks and metrics, improving image quality scores among camera-conditioned diffusion models by up to 33\% in multiview NVS LLFF dataset, 60\% in dynamic NVS Neural 3D Video benchmark, 20\% in static camera control on RE-10K, and reducing camera trajectory errors by 4x in text-conditioned video generation. With strong generalizability in one model, OmniView demonstrates the feasibility of a generalist 4D video model. Project page is available at https://snap-research.github.io/OmniView/</div>
+                <div class="paper-meta">
+                    <div class="paper-date">Published: 2025-12-11</div>
+                    <div class="paper-links">
+                        <a href="https://arxiv.org/abs/2512.10940v1" class="btn btn-primary" target="_blank">View Paper</a>
+                        <button class="btn btn-cite" onclick="showBibTeX('2512.10940', `@article{fan2025_2512.10940,
+  author = {Fan, Xiang and Girish, Sharath and Ramanujan, Vivek and Wang, Chaoyang and Mirzaei, Ashkan and Sushko, Petr and Siarohin, Aliaksandr and Tulyakov, Sergey and Krishna, Ranjay},
+  title = {OmniView: An All-Seeing Diffusion Model for 3D and 4D View Synthesis},
+  journal = {arXiv preprint arXiv:2512.10940},
+  year = {2025},
+  note = {arXiv:2512.10940}
+}`)">Cite</button>
+                    </div>
+                </div>
+            </div>
+            <div class="paper" data-arxiv-id="2512.10938">
+                <div class="paper-title">Stronger Normalization-Free Transformers</div>
+                <div class="paper-authors">Mingzhi Chen, Taiming Lu, Jiachen Zhu, Mingjie Sun, Zhuang Liu</div>
+                <div class="paper-abstract">Although normalization layers have long been viewed as indispensable components of deep learning architectures, the recent introduction of Dynamic Tanh (DyT) has demonstrated that alternatives are possible. The point-wise function DyT constrains extreme values for stable convergence and reaches normalization-level performance; this work seeks further for function designs that can surpass it. We first study how the intrinsic properties of point-wise functions influence training and performance. Building on these findings, we conduct a large-scale search for a more effective function design. Through this exploration, we introduce $\mathrm{Derf}(x) = \mathrm{erf}(αx + s)$, where $\mathrm{erf}(x)$ is the rescaled Gaussian cumulative distribution function, and identify it as the most performant design. Derf outperforms LayerNorm, RMSNorm, and DyT across a wide range of domains, including vision (image recognition and generation), speech representation, and DNA sequence modeling. Our findings suggest that the performance gains of Derf largely stem from its improved generalization rather than stronger fitting capacity. Its simplicity and stronger performance make Derf a practical choice for normalization-free Transformer architectures.</div>
+                <div class="paper-meta">
+                    <div class="paper-date">Published: 2025-12-11</div>
+                    <div class="paper-links">
+                        <a href="https://arxiv.org/abs/2512.10938v1" class="btn btn-primary" target="_blank">View Paper</a>
+                        <button class="btn btn-cite" onclick="showBibTeX('2512.10938', `@article{chen2025_2512.10938,
+  author = {Chen, Mingzhi and Lu, Taiming and Zhu, Jiachen and Sun, Mingjie and Liu, Zhuang},
+  title = {Stronger Normalization-Free Transformers},
+  journal = {arXiv preprint arXiv:2512.10938},
+  year = {2025},
+  note = {arXiv:2512.10938}
+}`)">Cite</button>
+                    </div>
+                </div>
+            </div>
+            <div class="paper" data-arxiv-id="2512.10937">
+                <div class="paper-title">On Decision-Making Agents and Higher-Order Causal Processes</div>
+                <div class="paper-authors">Matt Wilson</div>
+                <div class="paper-abstract">We establish a precise correspondence between decision-making agents in partially observable Markov decision processes (POMDPs) and one-input process functions, the classical limit of higher-order quantum operations. In this identification an agent's policy and memory update combine into a process function w that interacts with a POMDP environment via the link product. This suggests a dual interpretation: in the physics view, the process function acts as the environment into which local operations (agent interventions) are inserted, whereas in the AI view it encodes the agent and the inserted functions represent environments. We extend this perspective to multi-agent systems by identifying observation-independent decentralized POMDPs as natural domains for multi-input process functions.</div>
+                <div class="paper-meta">
+                    <div class="paper-date">Published: 2025-12-11</div>
+                    <div class="paper-links">
+                        <a href="https://arxiv.org/abs/2512.10937v1" class="btn btn-primary" target="_blank">View Paper</a>
+                        <button class="btn btn-cite" onclick="showBibTeX('2512.10937', `@article{wilson2025_2512.10937,
+  author = {Wilson, Matt},
+  title = {On Decision-Making Agents and Higher-Order Causal Processes},
+  journal = {arXiv preprint arXiv:2512.10937},
+  year = {2025},
+  note = {arXiv:2512.10937}
+}`)">Cite</button>
+                    </div>
+                </div>
+            </div>
+            <div class="paper" data-arxiv-id="2512.10936">
+                <div class="paper-title">Empirical evaluation of the Frank-Wolfe methods for constructing white-box adversarial attacks</div>
+                <div class="paper-authors">Kristina Korotkova, Aleksandr Katrutsa</div>
+                <div class="paper-abstract">The construction of adversarial attacks for neural networks appears to be a crucial challenge for their deployment in various services. To estimate the adversarial robustness of a neural network, a fast and efficient approach is needed to construct adversarial attacks. Since the formalization of adversarial attack construction involves solving a specific optimization problem, we consider the problem of constructing an efficient and effective adversarial attack from a numerical optimization perspective. Specifically, we suggest utilizing advanced projection-free methods, known as modified Frank-Wolfe methods, to construct white-box adversarial attacks on the given input data. We perform a theoretical and numerical evaluation of these methods and compare them with standard approaches based on projection operations or geometrical intuition. Numerical experiments are performed on the MNIST and CIFAR-10 datasets, utilizing a multiclass logistic regression model, the convolutional neural networks (CNNs), and the Vision Transformer (ViT).</div>
+                <div class="paper-meta">
+                    <div class="paper-date">Published: 2025-12-11</div>
+                    <div class="paper-links">
+                        <a href="https://arxiv.org/abs/2512.10936v1" class="btn btn-primary" target="_blank">View Paper</a>
+                        <button class="btn btn-cite" onclick="showBibTeX('2512.10936', `@article{korotkova2025_2512.10936,
+  author = {Korotkova, Kristina and Katrutsa, Aleksandr},
+  title = {Empirical evaluation of the Frank-Wolfe methods for constructing white-box adversarial attacks},
+  journal = {arXiv preprint arXiv:2512.10936},
+  year = {2025},
+  note = {arXiv:2512.10936}
+}`)">Cite</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="cs.CV" class="tab-content ">
+            <div class="paper" data-arxiv-id="2512.10959">
+                <div class="paper-title">StereoSpace: Depth-Free Synthesis of Stereo Geometry via End-to-End Diffusion in a Canonical Space</div>
+                <div class="paper-authors">Tjark Behrens, Anton Obukhov, Bingxin Ke, Fabio Tosi, Matteo Poggi, Konrad Schindler</div>
+                <div class="paper-abstract">We introduce StereoSpace, a diffusion-based framework for monocular-to-stereo synthesis that models geometry purely through viewpoint conditioning, without explicit depth or warping. A canonical rectified space and the conditioning guide the generator to infer correspondences and fill disocclusions end-to-end. To ensure fair and leakage-free evaluation, we introduce an end-to-end protocol that excludes any ground truth or proxy geometry estimates at test time. The protocol emphasizes metrics reflecting downstream relevance: iSQoE for perceptual comfort and MEt3R for geometric consistency. StereoSpace surpasses other methods from the warp & inpaint, latent-warping, and warped-conditioning categories, achieving sharp parallax and strong robustness on layered and non-Lambertian scenes. This establishes viewpoint-conditioned diffusion as a scalable, depth-free solution for stereo generation.</div>
+                <div class="paper-meta">
+                    <div class="paper-date">Published: 2025-12-11</div>
+                    <div class="paper-links">
+                        <a href="https://arxiv.org/abs/2512.10959v1" class="btn btn-primary" target="_blank">View Paper</a>
+                        <button class="btn btn-cite" onclick="showBibTeX('2512.10959', `@article{behrens2025_2512.10959,
+  author = {Behrens, Tjark and Obukhov, Anton and Ke, Bingxin and Tosi, Fabio and Poggi, Matteo and Schindler, Konrad},
+  title = {StereoSpace: Depth-Free Synthesis of Stereo Geometry via End-to-End Diffusion in a Canonical Space},
+  journal = {arXiv preprint arXiv:2512.10959},
+  year = {2025},
+  note = {arXiv:2512.10959}
+}`)">Cite</button>
+                    </div>
+                </div>
+            </div>
+            <div class="paper" data-arxiv-id="2512.10958">
+                <div class="paper-title">WorldLens: Full-Spectrum Evaluations of Driving World Models in Real World</div>
+                <div class="paper-authors">Ao Liang, Lingdong Kong, Tianyi Yan, Hongsi Liu, Wesley Yang, Ziqi Huang, Wei Yin, Jialong Zuo, Yixuan Hu, Dekai Zhu, Dongyue Lu, Youquan Liu, Guangfeng Jiang, Linfeng Li, Xiangtai Li, Long Zhuo, Lai Xing Ng, Benoit R. Cottereau, Changxin Gao, Liang Pan, Wei Tsang Ooi, Ziwei Liu</div>
+                <div class="paper-abstract">Generative world models are reshaping embodied AI, enabling agents to synthesize realistic 4D driving environments that look convincing but often fail physically or behaviorally. Despite rapid progress, the field still lacks a unified way to assess whether generated worlds preserve geometry, obey physics, or support reliable control. We introduce WorldLens, a full-spectrum benchmark evaluating how well a model builds, understands, and behaves within its generated world. It spans five aspects -- Generation, Reconstruction, Action-Following, Downstream Task, and Human Preference -- jointly covering visual realism, geometric consistency, physical plausibility, and functional reliability. Across these dimensions, no existing world model excels universally: those with strong textures often violate physics, while geometry-stable ones lack behavioral fidelity. To align objective metrics with human judgment, we further construct WorldLens-26K, a large-scale dataset of human-annotated videos with numerical scores and textual rationales, and develop WorldLens-Agent, an evaluation model distilled from these annotations to enable scalable, explainable scoring. Together, the benchmark, dataset, and agent form a unified ecosystem for measuring world fidelity -- standardizing how future models are judged not only by how real they look, but by how real they behave.</div>
+                <div class="paper-meta">
+                    <div class="paper-date">Published: 2025-12-11</div>
+                    <div class="paper-links">
+                        <a href="https://arxiv.org/abs/2512.10958v1" class="btn btn-primary" target="_blank">View Paper</a>
+                        <button class="btn btn-cite" onclick="showBibTeX('2512.10958', `@article{liang2025_2512.10958,
+  author = {Liang, Ao and Kong, Lingdong and Yan, Tianyi and Liu, Hongsi and Yang, Wesley and Huang, Ziqi and Yin, Wei and Zuo, Jialong and Hu, Yixuan and Zhu, Dekai and Lu, Dongyue and Liu, Youquan and Jiang, Guangfeng and Li, Linfeng and Li, Xiangtai and Zhuo, Long and Ng, Lai Xing and Cottereau, Benoit R. and Gao, Changxin and Pan, Liang and Ooi, Wei Tsang and Liu, Ziwei},
+  title = {WorldLens: Full-Spectrum Evaluations of Driving World Models in Real World},
+  journal = {arXiv preprint arXiv:2512.10958},
+  year = {2025},
+  note = {arXiv:2512.10958}
+}`)">Cite</button>
+                    </div>
+                </div>
+            </div>
+            <div class="paper" data-arxiv-id="2512.10957">
+                <div class="paper-title">SceneMaker: Open-set 3D Scene Generation with Decoupled De-occlusion and Pose Estimation Model</div>
+                <div class="paper-authors">Yukai Shi, Weiyu Li, Zihao Wang, Hongyang Li, Xingyu Chen, Ping Tan, Lei Zhang</div>
+                <div class="paper-abstract">We propose a decoupled 3D scene generation framework called SceneMaker in this work. Due to the lack of sufficient open-set de-occlusion and pose estimation priors, existing methods struggle to simultaneously produce high-quality geometry and accurate poses under severe occlusion and open-set settings. To address these issues, we first decouple the de-occlusion model from 3D object generation, and enhance it by leveraging image datasets and collected de-occlusion datasets for much more diverse open-set occlusion patterns. Then, we propose a unified pose estimation model that integrates global and local mechanisms for both self-attention and cross-attention to improve accuracy. Besides, we construct an open-set 3D scene dataset to further extend the generalization of the pose estimation model. Comprehensive experiments demonstrate the superiority of our decoupled framework on both indoor and open-set scenes. Our codes and datasets is released at https://idea-research.github.io/SceneMaker/.</div>
+                <div class="paper-meta">
+                    <div class="paper-date">Published: 2025-12-11</div>
+                    <div class="paper-links">
+                        <a href="https://arxiv.org/abs/2512.10957v1" class="btn btn-primary" target="_blank">View Paper</a>
+                        <button class="btn btn-cite" onclick="showBibTeX('2512.10957', `@article{shi2025_2512.10957,
+  author = {Shi, Yukai and Li, Weiyu and Wang, Zihao and Li, Hongyang and Chen, Xingyu and Tan, Ping and Zhang, Lei},
+  title = {SceneMaker: Open-set 3D Scene Generation with Decoupled De-occlusion and Pose Estimation Model},
+  journal = {arXiv preprint arXiv:2512.10957},
+  year = {2025},
+  note = {arXiv:2512.10957}
+}`)">Cite</button>
+                    </div>
+                </div>
+            </div>
+            <div class="paper" data-arxiv-id="2512.10956">
+                <div class="paper-title">Empowering Dynamic Urban Navigation with Stereo and Mid-Level Vision</div>
+                <div class="paper-authors">Wentao Zhou, Xuweiyi Chen, Vignesh Rajagopal, Jeffrey Chen, Rohan Chandra, Zezhou Cheng</div>
+                <div class="paper-abstract">The success of foundation models in language and vision motivated research in fully end-to-end robot navigation foundation models (NFMs). NFMs directly map monocular visual input to control actions and ignore mid-level vision modules (tracking, depth estimation, etc) entirely. While the assumption that vision capabilities will emerge implicitly is compelling, it requires large amounts of pixel-to-action supervision that are difficult to obtain. The challenge is especially pronounced in dynamic and unstructured settings, where robust navigation requires precise geometric and dynamic understanding, while the depth-scale ambiguity in monocular views further limits accurate spatial reasoning. In this paper, we show that relying on monocular vision and ignoring mid-level vision priors is inefficient.
+  We present StereoWalker, which augments NFMs with stereo inputs and explicit mid-level vision such as depth estimation and dense pixel tracking. Our intuition is straightforward: stereo inputs resolve the depth-scale ambiguity, and modern mid-level vision models provide reliable geometric and motion structure in dynamic scenes. We also curate a large stereo navigation dataset with automatic action annotation from Internet stereo videos to support training of StereoWalker and to facilitate future research. Through our experiments, we find that mid-level vision enables StereoWalker to achieve a comparable performance as the state-of-the-art using only 1.5% of the training data, and surpasses the state-of-the-art using the full data. We also observe that stereo vision yields higher navigation performance than monocular input.</div>
+                <div class="paper-meta">
+                    <div class="paper-date">Published: 2025-12-11</div>
+                    <div class="paper-links">
+                        <a href="https://arxiv.org/abs/2512.10956v1" class="btn btn-primary" target="_blank">View Paper</a>
+                        <button class="btn btn-cite" onclick="showBibTeX('2512.10956', `@article{zhou2025_2512.10956,
+  author = {Zhou, Wentao and Chen, Xuweiyi and Rajagopal, Vignesh and Chen, Jeffrey and Chandra, Rohan and Cheng, Zezhou},
+  title = {Empowering Dynamic Urban Navigation with Stereo and Mid-Level Vision},
+  journal = {arXiv preprint arXiv:2512.10956},
+  year = {2025},
+  note = {arXiv:2512.10956}
+}`)">Cite</button>
+                    </div>
+                </div>
+            </div>
+            <div class="paper" data-arxiv-id="2512.10955">
+                <div class="paper-title">Omni-Attribute: Open-vocabulary Attribute Encoder for Visual Concept Personalization</div>
+                <div class="paper-authors">Tsai-Shien Chen, Aliaksandr Siarohin, Guocheng Gordon Qian, Kuan-Chieh Jackson Wang, Egor Nemchinov, Moayed Haji-Ali, Riza Alp Guler, Willi Menapace, Ivan Skorokhodov, Anil Kag, Jun-Yan Zhu, Sergey Tulyakov</div>
+                <div class="paper-abstract">Visual concept personalization aims to transfer only specific image attributes, such as identity, expression, lighting, and style, into unseen contexts. However, existing methods rely on holistic embeddings from general-purpose image encoders, which entangle multiple visual factors and make it difficult to isolate a single attribute. This often leads to information leakage and incoherent synthesis. To address this limitation, we introduce Omni-Attribute, the first open-vocabulary image attribute encoder designed to learn high-fidelity, attribute-specific representations. Our approach jointly designs the data and model: (i) we curate semantically linked image pairs annotated with positive and negative attributes to explicitly teach the encoder what to preserve or suppress; and (ii) we adopt a dual-objective training paradigm that balances generative fidelity with contrastive disentanglement. The resulting embeddings prove effective for open-vocabulary attribute retrieval, personalization, and compositional generation, achieving state-of-the-art performance across multiple benchmarks.</div>
+                <div class="paper-meta">
+                    <div class="paper-date">Published: 2025-12-11</div>
+                    <div class="paper-links">
+                        <a href="https://arxiv.org/abs/2512.10955v1" class="btn btn-primary" target="_blank">View Paper</a>
+                        <button class="btn btn-cite" onclick="showBibTeX('2512.10955', `@article{chen2025_2512.10955,
+  author = {Chen, Tsai-Shien and Siarohin, Aliaksandr and Qian, Guocheng Gordon and Wang, Kuan-Chieh Jackson and Nemchinov, Egor and Haji-Ali, Moayed and Guler, Riza Alp and Menapace, Willi and Skorokhodov, Ivan and Kag, Anil and Zhu, Jun-Yan and Tulyakov, Sergey},
+  title = {Omni-Attribute: Open-vocabulary Attribute Encoder for Visual Concept Personalization},
+  journal = {arXiv preprint arXiv:2512.10955},
+  year = {2025},
+  note = {arXiv:2512.10955}
+}`)">Cite</button>
+                    </div>
+                </div>
+            </div>
+            <div class="paper" data-arxiv-id="2512.10953">
+                <div class="paper-title">Bidirectional Normalizing Flow: From Data to Noise and Back</div>
+                <div class="paper-authors">Yiyang Lu, Qiao Sun, Xianbang Wang, Zhicheng Jiang, Hanhong Zhao, Kaiming He</div>
+                <div class="paper-abstract">Normalizing Flows (NFs) have been established as a principled framework for generative modeling. Standard NFs consist of a forward process and a reverse process: the forward process maps data to noise, while the reverse process generates samples by inverting it. Typical NF forward transformations are constrained by explicit invertibility, ensuring that the reverse process can serve as their exact analytic inverse. Recent developments in TARFlow and its variants have revitalized NF methods by combining Transformers and autoregressive flows, but have also exposed causal decoding as a major bottleneck. In this work, we introduce Bidirectional Normalizing Flow ($\textbf{BiFlow}$), a framework that removes the need for an exact analytic inverse. BiFlow learns a reverse model that approximates the underlying noise-to-data inverse mapping, enabling more flexible loss functions and architectures. Experiments on ImageNet demonstrate that BiFlow, compared to its causal decoding counterpart, improves generation quality while accelerating sampling by up to two orders of magnitude. BiFlow yields state-of-the-art results among NF-based methods and competitive performance among single-evaluation ("1-NFE") methods. Following recent encouraging progress on NFs, we hope our work will draw further attention to this classical paradigm.</div>
+                <div class="paper-meta">
+                    <div class="paper-date">Published: 2025-12-11</div>
+                    <div class="paper-links">
+                        <a href="https://arxiv.org/abs/2512.10953v1" class="btn btn-primary" target="_blank">View Paper</a>
+                        <button class="btn btn-cite" onclick="showBibTeX('2512.10953', `@article{lu2025_2512.10953,
+  author = {Lu, Yiyang and Sun, Qiao and Wang, Xianbang and Jiang, Zhicheng and Zhao, Hanhong and He, Kaiming},
+  title = {Bidirectional Normalizing Flow: From Data to Noise and Back},
+  journal = {arXiv preprint arXiv:2512.10953},
+  year = {2025},
+  note = {arXiv:2512.10953}
+}`)">Cite</button>
+                    </div>
+                </div>
+            </div>
+            <div class="paper" data-arxiv-id="2512.10954">
+                <div class="paper-title">Group Diffusion: Enhancing Image Generation by Unlocking Cross-Sample Collaboration</div>
+                <div class="paper-authors">Sicheng Mo, Thao Nguyen, Richard Zhang, Nick Kolkin, Siddharth Srinivasan Iyer, Eli Shechtman, Krishna Kumar Singh, Yong Jae Lee, Bolei Zhou, Yuheng Li</div>
+                <div class="paper-abstract">In this work, we explore an untapped signal in diffusion model inference. While all previous methods generate images independently at inference, we instead ask if samples can be generated collaboratively. We propose Group Diffusion, unlocking the attention mechanism to be shared across images, rather than limited to just the patches within an image. This enables images to be jointly denoised at inference time, learning both intra and inter-image correspondence. We observe a clear scaling effect - larger group sizes yield stronger cross-sample attention and better generation quality. Furthermore, we introduce a qualitative measure to capture this behavior and show that its strength closely correlates with FID. Built on standard diffusion transformers, our GroupDiff achieves up to 32.2% FID improvement on ImageNet-256x256. Our work reveals cross-sample inference as an effective, previously unexplored mechanism for generative modeling.</div>
+                <div class="paper-meta">
+                    <div class="paper-date">Published: 2025-12-11</div>
+                    <div class="paper-links">
+                        <a href="https://arxiv.org/abs/2512.10954v1" class="btn btn-primary" target="_blank">View Paper</a>
+                        <button class="btn btn-cite" onclick="showBibTeX('2512.10954', `@article{mo2025_2512.10954,
+  author = {Mo, Sicheng and Nguyen, Thao and Zhang, Richard and Kolkin, Nick and Iyer, Siddharth Srinivasan and Shechtman, Eli and Singh, Krishna Kumar and Lee, Yong Jae and Zhou, Bolei and Li, Yuheng},
+  title = {Group Diffusion: Enhancing Image Generation by Unlocking Cross-Sample Collaboration},
+  journal = {arXiv preprint arXiv:2512.10954},
+  year = {2025},
+  note = {arXiv:2512.10954}
+}`)">Cite</button>
+                    </div>
+                </div>
+            </div>
+            <div class="paper" data-arxiv-id="2512.10950">
+                <div class="paper-title">E-RayZer: Self-supervised 3D Reconstruction as Spatial Visual Pre-training</div>
+                <div class="paper-authors">Qitao Zhao, Hao Tan, Qianqian Wang, Sai Bi, Kai Zhang, Kalyan Sunkavalli, Shubham Tulsiani, Hanwen Jiang</div>
+                <div class="paper-abstract">Self-supervised pre-training has revolutionized foundation models for languages, individual 2D images and videos, but remains largely unexplored for learning 3D-aware representations from multi-view images. In this paper, we present E-RayZer, a self-supervised large 3D Vision model that learns truly 3D-aware representations directly from unlabeled images. Unlike prior self-supervised methods such as RayZer that infer 3D indirectly through latent-space view synthesis, E-RayZer operates directly in 3D space, performing self-supervised 3D reconstruction with Explicit geometry. This formulation eliminates shortcut solutions and yields representations that are geometrically grounded. To ensure convergence and scalability, we introduce a novel fine-grained learning curriculum that organizes training from easy to hard samples and harmonizes heterogeneous data sources in an entirely unsupervised manner. Experiments demonstrate that E-RayZer significantly outperforms RayZer on pose estimation, matches or sometimes surpasses fully supervised reconstruction models such as VGGT. Furthermore, its learned representations outperform leading visual pre-training models (e.g., DINOv3, CroCo v2, VideoMAE V2, and RayZer) when transferring to 3D downstream tasks, establishing E-RayZer as a new paradigm for 3D-aware visual pre-training.</div>
+                <div class="paper-meta">
+                    <div class="paper-date">Published: 2025-12-11</div>
+                    <div class="paper-links">
+                        <a href="https://arxiv.org/abs/2512.10950v1" class="btn btn-primary" target="_blank">View Paper</a>
+                        <button class="btn btn-cite" onclick="showBibTeX('2512.10950', `@article{zhao2025_2512.10950,
+  author = {Zhao, Qitao and Tan, Hao and Wang, Qianqian and Bi, Sai and Zhang, Kai and Sunkavalli, Kalyan and Tulsiani, Shubham and Jiang, Hanwen},
+  title = {E-RayZer: Self-supervised 3D Reconstruction as Spatial Visual Pre-training},
+  journal = {arXiv preprint arXiv:2512.10950},
+  year = {2025},
+  note = {arXiv:2512.10950}
+}`)">Cite</button>
+                    </div>
+                </div>
+            </div>
+            <div class="paper" data-arxiv-id="2512.10949">
+                <div class="paper-title">Are We Ready for RL in Text-to-3D Generation? A Progressive Investigation</div>
+                <div class="paper-authors">Yiwen Tang, Zoey Guo, Kaixin Zhu, Ray Zhang, Qizhi Chen, Dongzhi Jiang, Junli Liu, Bohan Zeng, Haoming Song, Delin Qu, Tianyi Bai, Dan Xu, Wentao Zhang, Bin Zhao</div>
+                <div class="paper-abstract">Reinforcement learning (RL), earlier proven to be effective in large language and multi-modal models, has been successfully extended to enhance 2D image generation recently. However, applying RL to 3D generation remains largely unexplored due to the higher spatial complexity of 3D objects, which require globally consistent geometry and fine-grained local textures. This makes 3D generation significantly sensitive to reward designs and RL algorithms. To address these challenges, we conduct the first systematic study of RL for text-to-3D autoregressive generation across several dimensions. (1) Reward designs: We evaluate reward dimensions and model choices, showing that alignment with human preference is crucial, and that general multi-modal models provide robust signal for 3D attributes. (2) RL algorithms: We study GRPO variants, highlighting the effectiveness of token-level optimization, and further investigate the scaling of training data and iterations. (3) Text-to-3D Benchmarks: Since existing benchmarks fail to measure implicit reasoning abilities in 3D generation models, we introduce MME-3DR. (4) Advanced RL paradigms: Motivated by the natural hierarchy of 3D generation, we propose Hi-GRPO, which optimizes the global-to-local hierarchical 3D generation through dedicated reward ensembles. Based on these insights, we develop AR3D-R1, the first RL-enhanced text-to-3D model, expert from coarse shape to texture refinement. We hope this study provides insights into RL-driven reasoning for 3D generation. Code is released at https://github.com/Ivan-Tang-3D/3DGen-R1.</div>
+                <div class="paper-meta">
+                    <div class="paper-date">Published: 2025-12-11</div>
+                    <div class="paper-links">
+                        <a href="https://arxiv.org/abs/2512.10949v1" class="btn btn-primary" target="_blank">View Paper</a>
+                        <button class="btn btn-cite" onclick="showBibTeX('2512.10949', `@article{tang2025_2512.10949,
+  author = {Tang, Yiwen and Guo, Zoey and Zhu, Kaixin and Zhang, Ray and Chen, Qizhi and Jiang, Dongzhi and Liu, Junli and Zeng, Bohan and Song, Haoming and Qu, Delin and Bai, Tianyi and Xu, Dan and Zhang, Wentao and Zhao, Bin},
+  title = {Are We Ready for RL in Text-to-3D Generation? A Progressive Investigation},
+  journal = {arXiv preprint arXiv:2512.10949},
+  year = {2025},
+  note = {arXiv:2512.10949}
+}`)">Cite</button>
+                    </div>
+                </div>
+            </div>
+            <div class="paper" data-arxiv-id="2512.10948">
+                <div class="paper-title">ClusIR: Towards Cluster-Guided All-in-One Image Restoration</div>
+                <div class="paper-authors">Shengkai Hu, Jiaqi Ma, Jun Wan, Wenwen Min, Yongcheng Jing, Lefei Zhang, Dacheng Tao</div>
+                <div class="paper-abstract">All-in-One Image Restoration (AiOIR) aims to recover high-quality images from diverse degradations within a unified framework. However, existing methods often fail to explicitly model degradation types and struggle to adapt their restoration behavior to complex or mixed degradations. To address these issues, we propose ClusIR, a Cluster-Guided Image Restoration framework that explicitly models degradation semantics through learnable clustering and propagates cluster-aware cues across spatial and frequency domains for adaptive restoration. Specifically, ClusIR comprises two key components: a Probabilistic Cluster-Guided Routing Mechanism (PCGRM) and a Degradation-Aware Frequency Modulation Module (DAFMM). The proposed PCGRM disentangles degradation recognition from expert activation, enabling discriminative degradation perception and stable expert routing. Meanwhile, DAFMM leverages the cluster-guided priors to perform adaptive frequency decomposition and targeted modulation, collaboratively refining structural and textural representations for higher restoration fidelity. The cluster-guided synergy seamlessly bridges semantic cues with frequency-domain modulation, empowering ClusIR to attain remarkable restoration results across a wide range of degradations. Extensive experiments on diverse benchmarks validate that ClusIR reaches competitive performance under several scenarios.</div>
+                <div class="paper-meta">
+                    <div class="paper-date">Published: 2025-12-11</div>
+                    <div class="paper-links">
+                        <a href="https://arxiv.org/abs/2512.10948v1" class="btn btn-primary" target="_blank">View Paper</a>
+                        <button class="btn btn-cite" onclick="showBibTeX('2512.10948', `@article{hu2025_2512.10948,
+  author = {Hu, Shengkai and Ma, Jiaqi and Wan, Jun and Min, Wenwen and Jing, Yongcheng and Zhang, Lefei and Tao, Dacheng},
+  title = {ClusIR: Towards Cluster-Guided All-in-One Image Restoration},
+  journal = {arXiv preprint arXiv:2512.10948},
+  year = {2025},
+  note = {arXiv:2512.10948}
+}`)">Cite</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="cs.CL" class="tab-content ">
+            <div class="paper" data-arxiv-id="2512.10949">
+                <div class="paper-title">Are We Ready for RL in Text-to-3D Generation? A Progressive Investigation</div>
+                <div class="paper-authors">Yiwen Tang, Zoey Guo, Kaixin Zhu, Ray Zhang, Qizhi Chen, Dongzhi Jiang, Junli Liu, Bohan Zeng, Haoming Song, Delin Qu, Tianyi Bai, Dan Xu, Wentao Zhang, Bin Zhao</div>
+                <div class="paper-abstract">Reinforcement learning (RL), earlier proven to be effective in large language and multi-modal models, has been successfully extended to enhance 2D image generation recently. However, applying RL to 3D generation remains largely unexplored due to the higher spatial complexity of 3D objects, which require globally consistent geometry and fine-grained local textures. This makes 3D generation significantly sensitive to reward designs and RL algorithms. To address these challenges, we conduct the first systematic study of RL for text-to-3D autoregressive generation across several dimensions. (1) Reward designs: We evaluate reward dimensions and model choices, showing that alignment with human preference is crucial, and that general multi-modal models provide robust signal for 3D attributes. (2) RL algorithms: We study GRPO variants, highlighting the effectiveness of token-level optimization, and further investigate the scaling of training data and iterations. (3) Text-to-3D Benchmarks: Since existing benchmarks fail to measure implicit reasoning abilities in 3D generation models, we introduce MME-3DR. (4) Advanced RL paradigms: Motivated by the natural hierarchy of 3D generation, we propose Hi-GRPO, which optimizes the global-to-local hierarchical 3D generation through dedicated reward ensembles. Based on these insights, we develop AR3D-R1, the first RL-enhanced text-to-3D model, expert from coarse shape to texture refinement. We hope this study provides insights into RL-driven reasoning for 3D generation. Code is released at https://github.com/Ivan-Tang-3D/3DGen-R1.</div>
+                <div class="paper-meta">
+                    <div class="paper-date">Published: 2025-12-11</div>
+                    <div class="paper-links">
+                        <a href="https://arxiv.org/abs/2512.10949v1" class="btn btn-primary" target="_blank">View Paper</a>
+                        <button class="btn btn-cite" onclick="showBibTeX('2512.10949', `@article{tang2025_2512.10949,
+  author = {Tang, Yiwen and Guo, Zoey and Zhu, Kaixin and Zhang, Ray and Chen, Qizhi and Jiang, Dongzhi and Liu, Junli and Zeng, Bohan and Song, Haoming and Qu, Delin and Bai, Tianyi and Xu, Dan and Zhang, Wentao and Zhao, Bin},
+  title = {Are We Ready for RL in Text-to-3D Generation? A Progressive Investigation},
+  journal = {arXiv preprint arXiv:2512.10949},
+  year = {2025},
+  note = {arXiv:2512.10949}
+}`)">Cite</button>
+                    </div>
+                </div>
+            </div>
+            <div class="paper" data-arxiv-id="2512.10938">
+                <div class="paper-title">Stronger Normalization-Free Transformers</div>
+                <div class="paper-authors">Mingzhi Chen, Taiming Lu, Jiachen Zhu, Mingjie Sun, Zhuang Liu</div>
+                <div class="paper-abstract">Although normalization layers have long been viewed as indispensable components of deep learning architectures, the recent introduction of Dynamic Tanh (DyT) has demonstrated that alternatives are possible. The point-wise function DyT constrains extreme values for stable convergence and reaches normalization-level performance; this work seeks further for function designs that can surpass it. We first study how the intrinsic properties of point-wise functions influence training and performance. Building on these findings, we conduct a large-scale search for a more effective function design. Through this exploration, we introduce $\mathrm{Derf}(x) = \mathrm{erf}(αx + s)$, where $\mathrm{erf}(x)$ is the rescaled Gaussian cumulative distribution function, and identify it as the most performant design. Derf outperforms LayerNorm, RMSNorm, and DyT across a wide range of domains, including vision (image recognition and generation), speech representation, and DNA sequence modeling. Our findings suggest that the performance gains of Derf largely stem from its improved generalization rather than stronger fitting capacity. Its simplicity and stronger performance make Derf a practical choice for normalization-free Transformer architectures.</div>
+                <div class="paper-meta">
+                    <div class="paper-date">Published: 2025-12-11</div>
+                    <div class="paper-links">
+                        <a href="https://arxiv.org/abs/2512.10938v1" class="btn btn-primary" target="_blank">View Paper</a>
+                        <button class="btn btn-cite" onclick="showBibTeX('2512.10938', `@article{chen2025_2512.10938,
+  author = {Chen, Mingzhi and Lu, Taiming and Zhu, Jiachen and Sun, Mingjie and Liu, Zhuang},
+  title = {Stronger Normalization-Free Transformers},
+  journal = {arXiv preprint arXiv:2512.10938},
+  year = {2025},
+  note = {arXiv:2512.10938}
+}`)">Cite</button>
+                    </div>
+                </div>
+            </div>
+            <div class="paper" data-arxiv-id="2512.10931">
+                <div class="paper-title">Asynchronous Reasoning: Training-Free Interactive Thinking LLMs</div>
+                <div class="paper-authors">George Yakushev, Nataliia Babina, Masoud Vahid Dastgerdi, Vyacheslav Zhdanovskiy, Alina Shutova, Denis Kuznedelev</div>
+                <div class="paper-abstract">Many state-of-the-art LLMs are trained to think before giving their answer. Reasoning can greatly improve language model capabilities and safety, but it also makes them less interactive: given a new input, a model must stop thinking before it can respond. Real-world use cases such as voice-based or embedded assistants require an LLM agent to respond and adapt to additional information in real time, which is incompatible with sequential interactions. In contrast, humans can listen, think, and act asynchronously: we begin thinking about the problem while reading it and continue thinking while formulating the answer. In this work, we augment LLMs capable of reasoning to operate in a similar way without additional training. Our method uses the properties of rotary embeddings to enable LLMs built for sequential interactions to simultaneously think, listen, and generate outputs. We evaluate our approach on math, commonsense, and safety reasoning and find that it can generate accurate thinking-augmented answers in real time, reducing time to first non-thinking token from minutes to <= 5s. and the overall real-time delays by 6-11x.</div>
+                <div class="paper-meta">
+                    <div class="paper-date">Published: 2025-12-11</div>
+                    <div class="paper-links">
+                        <a href="https://arxiv.org/abs/2512.10931v1" class="btn btn-primary" target="_blank">View Paper</a>
+                        <button class="btn btn-cite" onclick="showBibTeX('2512.10931', `@article{yakushev2025_2512.10931,
+  author = {Yakushev, George and Babina, Nataliia and Dastgerdi, Masoud Vahid and Zhdanovskiy, Vyacheslav and Shutova, Alina and Kuznedelev, Denis},
+  title = {Asynchronous Reasoning: Training-Free Interactive Thinking LLMs},
+  journal = {arXiv preprint arXiv:2512.10931},
+  year = {2025},
+  note = {arXiv:2512.10931}
+}`)">Cite</button>
+                    </div>
+                </div>
+            </div>
+            <div class="paper" data-arxiv-id="2512.10918">
+                <div class="paper-title">CompanionCast: A Multi-Agent Conversational AI Framework with Spatial Audio for Social Co-Viewing Experiences</div>
+                <div class="paper-authors">Yiyang Wang, Chen Chen, Tica Lin, Vishnu Raj, Josh Kimball, Alex Cabral, Josiah Hester</div>
+                <div class="paper-abstract">Social presence is central to the enjoyment of watching content together, yet modern media consumption is increasingly solitary. We investigate whether multi-agent conversational AI systems can recreate the dynamics of shared viewing experiences across diverse content types. We present CompanionCast, a general framework for orchestrating multiple role-specialized AI agents that respond to video content using multimodal inputs, speech synthesis, and spatial audio. Distinctly, CompanionCast integrates an LLM-as-a-Judge module that iteratively scores and refines conversations across five dimensions (relevance, authenticity, engagement, diversity, personality consistency). We validate this framework through sports viewing, a domain with rich dynamics and strong social traditions, where a pilot study with soccer fans suggests that multi-agent interaction improves perceived social presence compared to solo viewing. We contribute: (1) a generalizable framework for orchestrating multi-agent conversations around multimodal video content, (2) a novel evaluator-agent pipeline for conversation quality control, and (3) exploratory evidence of increased social presence in AI-mediated co-viewing. We discuss challenges and future directions for applying this approach to diverse viewing contexts including entertainment, education, and collaborative watching experiences.</div>
+                <div class="paper-meta">
+                    <div class="paper-date">Published: 2025-12-11</div>
+                    <div class="paper-links">
+                        <a href="https://arxiv.org/abs/2512.10918v1" class="btn btn-primary" target="_blank">View Paper</a>
+                        <button class="btn btn-cite" onclick="showBibTeX('2512.10918', `@article{wang2025_2512.10918,
+  author = {Wang, Yiyang and Chen, Chen and Lin, Tica and Raj, Vishnu and Kimball, Josh and Cabral, Alex and Hester, Josiah},
+  title = {CompanionCast: A Multi-Agent Conversational AI Framework with Spatial Audio for Social Co-Viewing Experiences},
+  journal = {arXiv preprint arXiv:2512.10918},
+  year = {2025},
+  note = {arXiv:2512.10918}
+}`)">Cite</button>
+                    </div>
+                </div>
+            </div>
+            <div class="paper" data-arxiv-id="2512.10882">
+                <div class="paper-title">Computational emotion analysis with multimodal LLMs: Current evidence on an emerging methodological opportunity</div>
+                <div class="paper-authors">Hauke Licht</div>
+                <div class="paper-abstract">Emotions are central to politics and analyzing their role in political communication has a long tradition. As research increasingly leverages audio-visual materials to analyze the display of emotions, the emergence of multimodal generative AI promises great advances. However, we lack evidence about the effectiveness of multimodal AI in emotion analysis. This paper addresses this gap by evaluating current multimodal large language models (mLLMs) in video-based analysis of emotional arousal in two complementary data sets of human-labeled video recordings. I find that under ideal circumstances, mLLMs' emotional arousal ratings are highly reliable and show little to know indication of demographic bias. However, in recordings of speakers in real-world parliamentary debates, mLLMs' arousal ratings fail to deliver on this promise with potential negative consequences for downstream statistical inferences. This study therefore underscores the need for continued, thorough evaluation of emerging generative AI methods in political analysis and contributes a suitable replicable framework.</div>
+                <div class="paper-meta">
+                    <div class="paper-date">Published: 2025-12-11</div>
+                    <div class="paper-links">
+                        <a href="https://arxiv.org/abs/2512.10882v1" class="btn btn-primary" target="_blank">View Paper</a>
+                        <button class="btn btn-cite" onclick="showBibTeX('2512.10882', `@article{licht2025_2512.10882,
+  author = {Licht, Hauke},
+  title = {Computational emotion analysis with multimodal LLMs: Current evidence on an emerging methodological opportunity},
+  journal = {arXiv preprint arXiv:2512.10882},
+  year = {2025},
+  note = {arXiv:2512.10882}
+}`)">Cite</button>
+                    </div>
+                </div>
+            </div>
+            <div class="paper" data-arxiv-id="2512.10865">
+                <div class="paper-title">Quantifying Emotional Tone in Tolkien's The Hobbit: Dialogue Sentiment Analysis with RegEx, NRC-VAD, and Python</div>
+                <div class="paper-authors">Lilin Qiu</div>
+                <div class="paper-abstract">This study analyzes the emotional tone of dialogue in J. R. R. Tolkien's The Hobbit (1937) using computational text analysis. Dialogue was extracted with regular expressions, then preprocessed, and scored using the NRC-VAD lexicon to quantify emotional dimensions. The results show that the dialogue maintains a generally positive (high valence) and calm (low arousal) tone, with a gradually increasing sense of agency (dominance) as the story progresses. These patterns reflect the novel's emotional rhythm: moments of danger and excitement are regularly balanced by humor, camaraderie, and relief. Visualizations -- including emotional trajectory graphs and word clouds -- highlight how Tolkien's language cycles between tension and comfort. By combining computational tools with literary interpretation, this study demonstrates how digital methods can uncover subtle emotional structures in literature, revealing the steady rhythm and emotional modulation that shape the storytelling in The Hobbit.</div>
+                <div class="paper-meta">
+                    <div class="paper-date">Published: 2025-12-11</div>
+                    <div class="paper-links">
+                        <a href="https://arxiv.org/abs/2512.10865v1" class="btn btn-primary" target="_blank">View Paper</a>
+                        <button class="btn btn-cite" onclick="showBibTeX('2512.10865', `@article{qiu2025_2512.10865,
+  author = {Qiu, Lilin},
+  title = {Quantifying Emotional Tone in Tolkien's The Hobbit: Dialogue Sentiment Analysis with RegEx, NRC-VAD, and Python},
+  journal = {arXiv preprint arXiv:2512.10865},
+  year = {2025},
+  note = {arXiv:2512.10865}
+}`)">Cite</button>
+                    </div>
+                </div>
+            </div>
+            <div class="paper" data-arxiv-id="2512.10793">
+                <div class="paper-title">LabelFusion: Learning to Fuse LLMs and Transformer Classifiers for Robust Text Classification</div>
+                <div class="paper-authors">Michael Schlee, Christoph Weisser, Timo Kivimäki, Melchizedek Mashiku, Benjamin Saefken</div>
+                <div class="paper-abstract">LabelFusion is a fusion ensemble for text classification that learns to combine a traditional transformer-based classifier (e.g., RoBERTa) with one or more Large Language Models (LLMs such as OpenAI GPT, Google Gemini, or DeepSeek) to deliver accurate and cost-aware predictions across multi-class and multi-label tasks. The package provides a simple high-level interface (AutoFusionClassifier) that trains the full pipeline end-to-end with minimal configuration, and a flexible API for advanced users. Under the hood, LabelFusion integrates vector signals from both sources by concatenating the ML backbone's embeddings with the LLM-derived per-class scores -- obtained through structured prompt-engineering strategies -- and feeds this joint representation into a compact multi-layer perceptron (FusionMLP) that produces the final prediction. This learned fusion approach captures complementary strengths of LLM reasoning and traditional transformer-based classifiers, yielding robust performance across domains -- achieving 92.4% accuracy on AG News and 92.3% on 10-class Reuters 21578 topic classification -- while enabling practical trade-offs between accuracy, latency, and cost.</div>
+                <div class="paper-meta">
+                    <div class="paper-date">Published: 2025-12-11</div>
+                    <div class="paper-links">
+                        <a href="https://arxiv.org/abs/2512.10793v1" class="btn btn-primary" target="_blank">View Paper</a>
+                        <button class="btn btn-cite" onclick="showBibTeX('2512.10793', `@article{schlee2025_2512.10793,
+  author = {Schlee, Michael and Weisser, Christoph and Kivimäki, Timo and Mashiku, Melchizedek and Saefken, Benjamin},
+  title = {LabelFusion: Learning to Fuse LLMs and Transformer Classifiers for Robust Text Classification},
+  journal = {arXiv preprint arXiv:2512.10793},
+  year = {2025},
+  note = {arXiv:2512.10793}
+}`)">Cite</button>
+                    </div>
+                </div>
+            </div>
+            <div class="paper" data-arxiv-id="2512.10791">
+                <div class="paper-title">The FACTS Leaderboard: A Comprehensive Benchmark for Large Language Model Factuality</div>
+                <div class="paper-authors">Aileen Cheng, Alon Jacovi, Amir Globerson, Ben Golan, Charles Kwong, Chris Alberti, Connie Tao, Eyal Ben-David, Gaurav Singh Tomar, Lukas Haas, Yonatan Bitton, Adam Bloniarz, Aijun Bai, Andrew Wang, Anfal Siddiqui, Arturo Bajuelos Castillo, Aviel Atias, Chang Liu, Corey Fry, Daniel Balle, Deepanway Ghosal, Doron Kukliansky, Dror Marcus, Elena Gribovskaya, Eran Ofek, Honglei Zhuang, Itay Laish, Jan Ackermann, Lily Wang, Meg Risdal, Megan Barnes, Michael Fink, Mohamed Amin, Moran Ambar, Natan Potikha, Nikita Gupta, Nitzan Katz, Noam Velan, Ofir Roval, Ori Ram, Polina Zablotskaia, Prathamesh Bang, Priyanka Agrawal, Rakesh Ghiya, Sanjay Ganapathy, Simon Baumgartner, Sofia Erell, Sushant Prakash, Thibault Sellam, Vikram Rao, Xuanhui Wang, Yaroslav Akulov, Yulong Yang, Zhen Yang, Zhixin Lai, Zhongru Wu, Anca Dragan, Avinatan Hassidim, Fernando Pereira, Slav Petrov, Srinivasan Venkatachary, Tulsee Doshi, Yossi Matias, Sasha Goldshtein, Dipanjan Das</div>
+                <div class="paper-abstract">We introduce The FACTS Leaderboard, an online leaderboard suite and associated set of benchmarks that comprehensively evaluates the ability of language models to generate factually accurate text across diverse scenarios. The suite provides a holistic measure of factuality by aggregating the performance of models on four distinct sub-leaderboards: (1) FACTS Multimodal, which measures the factuality of responses to image-based questions; (2) FACTS Parametric, which assesses models' world knowledge by answering closed-book factoid questions from internal parameters; (3) FACTS Search, which evaluates factuality in information-seeking scenarios, where the model must use a search API; and (4) FACTS Grounding (v2), which evaluates whether long-form responses are grounded in provided documents, featuring significantly improved judge models. Each sub-leaderboard employs automated judge models to score model responses, and the final suite score is an average of the four components, designed to provide a robust and balanced assessment of a model's overall factuality. The FACTS Leaderboard Suite will be actively maintained, containing both public and private splits to allow for external participation while guarding its integrity. It can be found at https://www.kaggle.com/benchmarks/google/facts .</div>
+                <div class="paper-meta">
+                    <div class="paper-date">Published: 2025-12-11</div>
+                    <div class="paper-links">
+                        <a href="https://arxiv.org/abs/2512.10791v1" class="btn btn-primary" target="_blank">View Paper</a>
+                        <button class="btn btn-cite" onclick="showBibTeX('2512.10791', `@article{cheng2025_2512.10791,
+  author = {Cheng, Aileen and Jacovi, Alon and Globerson, Amir and Golan, Ben and Kwong, Charles and Alberti, Chris and Tao, Connie and Ben-David, Eyal and Tomar, Gaurav Singh and Haas, Lukas and Bitton, Yonatan and Bloniarz, Adam and Bai, Aijun and Wang, Andrew and Siddiqui, Anfal and Castillo, Arturo Bajuelos and Atias, Aviel and Liu, Chang and Fry, Corey and Balle, Daniel and Ghosal, Deepanway and Kukliansky, Doron and Marcus, Dror and Gribovskaya, Elena and Ofek, Eran and Zhuang, Honglei and Laish, Itay and Ackermann, Jan and Wang, Lily and Risdal, Meg and Barnes, Megan and Fink, Michael and Amin, Mohamed and Ambar, Moran and Potikha, Natan and Gupta, Nikita and Katz, Nitzan and Velan, Noam and Roval, Ofir and Ram, Ori and Zablotskaia, Polina and Bang, Prathamesh and Agrawal, Priyanka and Ghiya, Rakesh and Ganapathy, Sanjay and Baumgartner, Simon and Erell, Sofia and Prakash, Sushant and Sellam, Thibault and Rao, Vikram and Wang, Xuanhui and Akulov, Yaroslav and Yang, Yulong and Yang, Zhen and Lai, Zhixin and Wu, Zhongru and Dragan, Anca and Hassidim, Avinatan and Pereira, Fernando and Petrov, Slav and Venkatachary, Srinivasan and Doshi, Tulsee and Matias, Yossi and Goldshtein, Sasha and Das, Dipanjan},
+  title = {The FACTS Leaderboard: A Comprehensive Benchmark for Large Language Model Factuality},
+  journal = {arXiv preprint arXiv:2512.10791},
+  year = {2025},
+  note = {arXiv:2512.10791}
+}`)">Cite</button>
+                    </div>
+                </div>
+            </div>
+            <div class="paper" data-arxiv-id="2512.10787">
+                <div class="paper-title">Replace, Don't Expand: Mitigating Context Dilution in Multi-Hop RAG via Fixed-Budget Evidence Assembly</div>
+                <div class="paper-authors">Moshe Lahmy, Roi Yozevitch</div>
+                <div class="paper-abstract">Retrieval-Augmented Generation (RAG) systems often fail on multi-hop queries when the initial retrieval misses a bridge fact. Prior corrective approaches, such as Self-RAG, CRAG, and Adaptive-$k$, typically address this by \textit{adding} more context or pruning existing lists. However, simply expanding the context window often leads to \textbf{context dilution}, where distractors crowd out relevant information. We propose \textbf{SEAL-RAG}, a training-free controller that adopts a \textbf{``replace, don't expand''} strategy to fight context dilution under a fixed retrieval depth $k$. SEAL executes a (\textbf{S}earch $\rightarrow$ \textbf{E}xtract $\rightarrow$ \textbf{A}ssess $\rightarrow$ \textbf{L}oop) cycle: it performs on-the-fly, entity-anchored extraction to build a live \textit{gap specification} (missing entities/relations), triggers targeted micro-queries, and uses \textit{entity-first ranking} to actively swap out distractors for gap-closing evidence. We evaluate SEAL-RAG against faithful re-implementations of Basic RAG, CRAG, Self-RAG, and Adaptive-$k$ in a shared environment on \textbf{HotpotQA} and \textbf{2WikiMultiHopQA}. On HotpotQA ($k=3$), SEAL improves answer correctness by \textbf{+3--13 pp} and evidence precision by \textbf{+12--18 pp} over Self-RAG. On 2WikiMultiHopQA ($k=5$), it outperforms Adaptive-$k$ by \textbf{+8.0 pp} in accuracy and maintains \textbf{96\%} evidence precision compared to 22\% for CRAG. These gains are statistically significant ($p<0.001$). By enforcing fixed-$k$ replacement, SEAL yields a predictable cost profile while ensuring the top-$k$ slots are optimized for precision rather than mere breadth. We release our code and data at https://github.com/mosherino/SEAL-RAG.</div>
+                <div class="paper-meta">
+                    <div class="paper-date">Published: 2025-12-11</div>
+                    <div class="paper-links">
+                        <a href="https://arxiv.org/abs/2512.10787v1" class="btn btn-primary" target="_blank">View Paper</a>
+                        <button class="btn btn-cite" onclick="showBibTeX('2512.10787', `@article{lahmy2025_2512.10787,
+  author = {Lahmy, Moshe and Yozevitch, Roi},
+  title = {Replace, Don't Expand: Mitigating Context Dilution in Multi-Hop RAG via Fixed-Budget Evidence Assembly},
+  journal = {arXiv preprint arXiv:2512.10787},
+  year = {2025},
+  note = {arXiv:2512.10787}
+}`)">Cite</button>
+                    </div>
+                </div>
+            </div>
+            <div class="paper" data-arxiv-id="2512.10780">
+                <div class="paper-title">Script Gap: Evaluating LLM Triage on Indian Languages in Native vs Roman Scripts in a Real World Setting</div>
+                <div class="paper-authors">Manurag Khullar, Utkarsh Desai, Poorva Malviya, Aman Dalmia, Zheyuan Ryan Shi</div>
+                <div class="paper-abstract">Large Language Models (LLMs) are increasingly deployed in high-stakes clinical applications in India. In many such settings, speakers of Indian languages frequently communicate using romanized text rather than native scripts, yet existing research rarely evaluates this orthographic variation using real-world data. We investigate how romanization impacts the reliability of LLMs in a critical domain: maternal and newborn healthcare triage. We benchmark leading LLMs on a real-world dataset of user-generated queries spanning five Indian languages and Nepali. Our results reveal consistent degradation in performance for romanized messages, with F1 scores trailing those of native scripts by 5-12 points. At our partner maternal health organization in India, this gap could cause nearly 2 million excess errors in triage. Crucially, this performance gap by scripts is not due to a failure in clinical reasoning. We demonstrate that LLMs often correctly infer the semantic intent of romanized queries. Nevertheless, their final classification outputs remain brittle in the presence of orthographic noise in romanized inputs. Our findings highlight a critical safety blind spot in LLM-based health systems: models that appear to understand romanized input may still fail to act on it reliably.</div>
+                <div class="paper-meta">
+                    <div class="paper-date">Published: 2025-12-11</div>
+                    <div class="paper-links">
+                        <a href="https://arxiv.org/abs/2512.10780v1" class="btn btn-primary" target="_blank">View Paper</a>
+                        <button class="btn btn-cite" onclick="showBibTeX('2512.10780', `@article{khullar2025_2512.10780,
+  author = {Khullar, Manurag and Desai, Utkarsh and Malviya, Poorva and Dalmia, Aman and Shi, Zheyuan Ryan},
+  title = {Script Gap: Evaluating LLM Triage on Indian Languages in Native vs Roman Scripts in a Real World Setting},
+  journal = {arXiv preprint arXiv:2512.10780},
+  year = {2025},
+  note = {arXiv:2512.10780}
+}`)">Cite</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- BibTeX Modal -->
+    <div id="bibtexModal" class="bibtex-modal">
+        <div class="bibtex-content">
+            <span class="close-btn" onclick="closeBibTeX()">&times;</span>
+            <h3>BibTeX Citation</h3>
+            <div id="bibtexText" class="bibtex-text"></div>
+            <button class="btn btn-primary" onclick="copyBibTeX()">Copy to Clipboard</button>
+            <button class="btn" onclick="closeBibTeX()">Close</button>
+        </div>
+    </div>
+
+    <script>
+        function showTab(category) {
+            // Hide all tab contents
+            const tabContents = document.querySelectorAll('.tab-content');
+            tabContents.forEach(content => {
+                content.classList.remove('active');
+            });
+            
+            // Remove active class from all tabs
+            const tabs = document.querySelectorAll('.tab');
+            tabs.forEach(tab => {
+                tab.classList.remove('active');
+            });
+            
+            // Show selected tab content
+            document.getElementById(category).classList.add('active');
+            
+            // Add active class to clicked tab
+            event.target.classList.add('active');
+        }
+
+        function showBibTeX(arxivId, bibtex) {
+            document.getElementById('bibtexText').textContent = bibtex;
+            document.getElementById('bibtexModal').style.display = 'block';
+        }
+
+        function closeBibTeX() {
+            document.getElementById('bibtexModal').style.display = 'none';
+        }
+
+        function copyBibTeX() {
+            const bibtexText = document.getElementById('bibtexText').textContent;
+            navigator.clipboard.writeText(bibtexText).then(() => {
+                alert('BibTeX citation copied to clipboard!');
+            }).catch(() => {
+                // Fallback for older browsers
+                const textArea = document.createElement('textarea');
+                textArea.value = bibtexText;
+                document.body.appendChild(textArea);
+                textArea.select();
+                document.execCommand('copy');
+                document.body.removeChild(textArea);
+                alert('BibTeX citation copied to clipboard!');
+            });
+        }
+
+        // Close modal when clicking outside
+        window.onclick = function(event) {
+            const modal = document.getElementById('bibtexModal');
+            if (event.target === modal) {
+                closeBibTeX();
+            }
+        }
+    </script>
+</body>
+</html>
